@@ -1,0 +1,40 @@
+name: teragen
+useContainers: true
+hosts: 1
+baremetal:
+    username: vagrant
+    ips: 
+        - 104.155.173.105
+cookbooks:
+  hadoop:
+    branch: master
+    github: launching-pad/apache-hadoop-chef
+  terasort:
+    branch: master
+    github: launching-pad/terasort
+  teragen:
+    branch: master
+    github: launching-pad/teragen
+attrs:
+  hadoop:
+    mr:
+      user: vagrant
+    yarn:
+      user: vagrant
+  hdfs:
+    user: vagrant
+  teragen:
+    records: 1000000000
+groups:
+  namenodes:
+    size: 1
+    recipes:
+    - hadoop::nn
+    - teragen::experiment
+    - terasort::experiment
+    - hadoop::rm
+  datanodes:
+    size: 1
+    recipes:
+    - hadoop::nm
+    - hadoop::dn

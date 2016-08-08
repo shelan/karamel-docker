@@ -1,0 +1,41 @@
+name: teragen
+useContainers: true
+hosts: 8
+ec2:
+      ami: ami-07bfae66
+      region: us-west-2
+      type: r3.2xlarge
+      price: 0.5
+cookbooks:
+  hadoop:
+    branch: master
+    github: launching-pad/apache-hadoop-chef
+  terasort:
+    branch: master
+    github: launching-pad/terasort
+  teragen:
+    branch: master
+    github: launching-pad/teragen
+attrs:
+  hadoop:
+    mr:
+      user: vagrant
+    yarn:
+      user: vagrant
+  hdfs:
+    user: vagrant
+  teragen:
+    records: 100000000
+groups:
+  namenodes:
+    size: 1
+    recipes:
+    - hadoop::nn
+    - teragen::experiment
+    - terasort::experiment
+    - hadoop::rm
+  datanodes:
+    size: 1
+    recipes:
+    - hadoop::nm
+    - hadoop::dn
