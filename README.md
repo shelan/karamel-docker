@@ -15,7 +15,7 @@ This is the repository to store resources related to Karamel Docker integration
 
 ### How to view Docker containers visually to obtain port mappings ?
 
-You can download & install [Simple Docker UI chrome plugin] (https://chrome.google.com/webstore/detail/simple-docker-ui/jfaelnolkgonnjdlkfokjadedkacbnib). Then in the settings add Docker URL for each host. URL will be http://<publicIp of host machine>:2375
+You can download & install [Simple Docker UI chrome plugin] (https://chrome.google.com/webstore/detail/simple-docker-ui/jfaelnolkgonnjdlkfokjadedkacbnib). Then in the settings add Docker URL for each host. URL will be ``` http://<publicIp of host machine>:2375```
 
 Then in the UI following details can be visualized.
 
