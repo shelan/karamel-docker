@@ -19,4 +19,8 @@ You can download & install [Simple Docker UI chrome plugin] (https://chrome.goog
 
 Then in the UI following details can be visualized.
 
+![alt text][docker-ui]
+
+[docker-ui]: https://github.com/shelan/karamel-docker/blob/master/img/docker-ui.png "Docker UI"
+
 
